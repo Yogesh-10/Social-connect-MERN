@@ -1,7 +1,13 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { setAlert } from '../../actions/alertActions'
 
 const Register = () => {
+	const dispatch = useDispatch()
+
+	// const alertReducer = useSelector((state) => state.alertReducer)
+
 	const [formData, setFormData] = useState({
 		name: '',
 		email: '',
@@ -16,7 +22,7 @@ const Register = () => {
 	const submitHandler = async (e) => {
 		e.preventDefault()
 		if (password !== password2) {
-			console.log('no match')
+			dispatch(setAlert('password do not match', 'danger'))
 		} else {
 			// **FETCH THROUGH COMPONENT WITHOUT REDUX ACTION**//
 			// const newUser = {
@@ -36,6 +42,7 @@ const Register = () => {
 			// } catch (error) {
 			// 	console.error(error.res.data)
 			// }
+			console.log('success')
 		}
 	}
 
@@ -93,7 +100,7 @@ const Register = () => {
 					<input type='submit' className='btn btn-primary' value='Register' />
 				</form>
 				<p className='my-1'>
-					Already have an account? <Link href='/login'>Sign In</Link>
+					Already have an account? <Link to='/login'>Sign In</Link>
 				</p>
 			</section>
 		</>
