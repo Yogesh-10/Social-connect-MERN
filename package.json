@@ -1,0 +1,28 @@
+{
+	"name": "social-network-project",
+	"version": "1.0.0",
+	"description": "social network connector",
+	"main": "server.js",
+	"scripts": {
+		"start": "node server",
+		"server": "nodemon server",
+		"dev": "concurrently \"npm run server\" \"npm run client\""
+	},
+	"author": "yogesh",
+	"license": "ISC",
+	"dependencies": {
+		"axios": "^0.21.1",
+		"bcryptjs": "^2.4.3",
+		"config": "^3.3.3",
+		"express": "^4.17.1",
+		"express-validator": "^6.9.2",
+		"gravatar": "^1.8.1",
+		"jsonwebtoken": "^8.5.1",
+		"mongoose": "^5.11.14",
+		"normalize": "^0.3.1"
+	},
+	"devDependencies": {
+		"concurrently": "^5.3.0",
+		"nodemon": "^2.0.7"
+	}
+}
