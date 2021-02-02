@@ -10,6 +10,7 @@ import {
 } from '../constants/authConstants'
 import { setAlert } from '../actions/alertActions'
 import setAuthToken from '../utils/setAuthToken'
+import { CLEAR_PROFILE } from '../constants/profileConstants'
 
 // load user
 export const loadUser = () => async (dispatch) => {
@@ -93,5 +94,8 @@ export const login = (email, password) => async (dispatch) => {
 export const logout = () => (dispatch) => {
 	dispatch({
 		type: LOGOUT,
+	})
+	dispatch({
+		type: CLEAR_PROFILE,
 	})
 }

@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
-import { Link, Redirect, useHistory } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { login } from '../../actions/authActions'
 
 const Login = () => {
 	const dispatch = useDispatch()
-	const history = useHistory()
 
 	const authReducer = useSelector((state) => state.authReducer)
 
