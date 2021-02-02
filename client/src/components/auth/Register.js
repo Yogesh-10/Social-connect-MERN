@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { Link, useHistory } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 import { setAlert } from '../../actions/alertActions'
 import { register } from '../../actions/authActions'
 
 const Register = () => {
 	const dispatch = useDispatch()
+	const history = useHistory()
 
-	// const alertReducer = useSelector((state) => state.alertReducer)
+	const authReducer = useSelector((state) => state.authReducer)
+
+	const { isAuthenticated } = authReducer
 
 	const [formData, setFormData] = useState({
 		name: '',
@@ -45,6 +48,10 @@ const Register = () => {
 			// 	console.error(error.res.data)
 			// }
 		}
+	}
+
+	if (isAuthenticated) {
+		history.push('/dashboard')
 	}
 
 	return (
