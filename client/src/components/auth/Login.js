@@ -1,7 +1,16 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect, useHistory } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { login } from '../../actions/authActions'
 
 const Login = () => {
+	const dispatch = useDispatch()
+	const history = useHistory()
+
+	const authReducer = useSelector((state) => state.authReducer)
+
+	const { isAuthenticated } = authReducer
+
 	const [formData, setFormData] = useState({
 		email: '',
 		password: '',
@@ -13,6 +22,7 @@ const Login = () => {
 
 	const submitHandler = async (e) => {
 		e.preventDefault()
+		dispatch(login(email, password))
 		// **FETCH THROUGH COMPONENT WITHOUT REDUX ACTION**//
 		// const newUser = {
 		// 	email,
@@ -30,6 +40,10 @@ const Login = () => {
 		// } catch (error) {
 		// 	console.error(error.res.data)
 		// }
+	}
+	// redirect if logged in
+	if (isAuthenticated) {
+		return <Redirect to='/dashboard' />
 	}
 
 	return (
