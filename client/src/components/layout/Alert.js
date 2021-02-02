@@ -9,7 +9,7 @@ const Alert = () => {
 			{alertReducer !== null &&
 				alertReducer.length > 0 &&
 				alertReducer.map((alert) => (
-					<div key={alert.id} className={`alert alert-danger`}>
+					<div key={alert.id} className={`alert alert-${alert.alertType}`}>
 						{alert.msg}
 					</div>
 				))}
