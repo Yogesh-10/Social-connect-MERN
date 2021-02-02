@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { setAlert } from '../../actions/alertActions'
+import { register } from '../../actions/authActions'
 
 const Register = () => {
 	const dispatch = useDispatch()
@@ -24,6 +25,7 @@ const Register = () => {
 		if (password !== password2) {
 			dispatch(setAlert('password do not match', 'danger'))
 		} else {
+			dispatch(register(name, email, password))
 			// **FETCH THROUGH COMPONENT WITHOUT REDUX ACTION**//
 			// const newUser = {
 			// 	name,
@@ -42,7 +44,6 @@ const Register = () => {
 			// } catch (error) {
 			// 	console.error(error.res.data)
 			// }
-			console.log('success')
 		}
 	}
 
@@ -61,7 +62,6 @@ const Register = () => {
 							name='name'
 							value={name}
 							onChange={(e) => onchange(e)}
-							required
 						/>
 					</div>
 					<div className='form-group'>
@@ -82,7 +82,6 @@ const Register = () => {
 							type='password'
 							placeholder='Password'
 							name='password'
-							minLength='6'
 							email={password}
 							onChange={(e) => onchange(e)}
 						/>
@@ -92,7 +91,6 @@ const Register = () => {
 							type='password'
 							placeholder='Confirm Password'
 							name='password2'
-							minLength='6'
 							value={password2}
 							onChange={(e) => onchange(e)}
 						/>
