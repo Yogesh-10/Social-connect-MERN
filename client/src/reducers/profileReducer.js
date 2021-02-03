@@ -1,13 +1,15 @@
 import {
 	CLEAR_PROFILE,
 	GET_PROFILE,
+	GET_PROFILES,
+	GET_REPOS,
 	PROFILE_ERROR,
 	UPDATE_PROFILE,
 } from '../constants/profileConstants'
 
 const initialState = {
 	profile: null,
-	profileFiles: [],
+	profiles: [],
 	repos: [],
 	loading: true,
 	error: {},
@@ -22,6 +24,12 @@ const profileReducer = (state = initialState, action) => {
 				profile: action.payload,
 				loading: false,
 			}
+		case GET_PROFILES:
+			return {
+				...state,
+				profiles: action.payload,
+				loading: false,
+			}
 		case PROFILE_ERROR:
 			return {
 				...state,
@@ -33,6 +41,11 @@ const profileReducer = (state = initialState, action) => {
 				...state,
 				profile: null,
 				repos: [],
+			}
+		case GET_REPOS:
+			return {
+				...state,
+				repos: action.payload,
 				loading: false,
 			}
 		default:
