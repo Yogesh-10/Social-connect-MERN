@@ -19,6 +19,7 @@ import AddEducation from './components/profile-forms/AddEducation'
 import GetProfiles from './components/profiles/GetProfiles'
 import Profile from './components/profile/profile'
 import Posts from './components/posts/Posts'
+import Post from './components/post/Post'
 
 if (localStorage.token) {
 	setAuthToken(localStorage.token)
@@ -64,6 +65,7 @@ const App = () => {
 								component={AddEducation}
 							/>
 							<PrivateRoute exact path='/posts' component={Posts} />
+							<PrivateRoute exact path='/posts/:id' component={Post} />
 						</Switch>
 					</section>
 				</>
