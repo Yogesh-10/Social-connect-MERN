@@ -16,6 +16,9 @@ const Navbar = () => {
 				<a href='/profiles '>Developers</a>
 			</li>
 			<li>
+				<a href='/posts '>Posts</a>
+			</li>
+			<li>
 				<Link to='/dashboard'>
 					<i className='fas fa-user'></i>{' '}
 					<span className='hide-sm'>Dashboard</span>
