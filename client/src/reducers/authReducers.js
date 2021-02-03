@@ -7,6 +7,7 @@ import {
 	LOGIN_FAIL,
 	LOGOUT,
 } from '../constants/authConstants'
+import { DELETE_ACCOUNT } from '../constants/profileConstants'
 
 const initialState = {
 	token: localStorage.getItem('token'),
@@ -30,6 +31,7 @@ const registerReducer = (state = initialState, action) => {
 		case AUTH_ERROR:
 		case LOGIN_FAIL:
 		case LOGOUT:
+		case DELETE_ACCOUNT:
 			localStorage.removeItem('token')
 			return {
 				...state,
