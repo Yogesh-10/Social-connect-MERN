@@ -2,6 +2,7 @@ import {
 	CLEAR_PROFILE,
 	GET_PROFILE,
 	PROFILE_ERROR,
+	UPDATE_PROFILE,
 } from '../constants/profileConstants'
 
 const initialState = {
@@ -15,6 +16,7 @@ const initialState = {
 const profileReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case GET_PROFILE:
+		case UPDATE_PROFILE:
 			return {
 				...state,
 				profile: action.payload,
