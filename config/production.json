@@ -1,6 +1,0 @@
-{
-	"mongoURI": "mongodb+srv://yogi:yogi1234@social-network.xv00u.mongodb.net/social-network?retryWrites=true&w=majority",
-	"jwtSecret": "@$JI!()@@#%!#%RGJVJIeroo6262621",
-	"githubClientId": "9383dbc98aa241592db7",
-	"githubSecret": "c9821cf08f368d970af171d10175d42ae4eef372"
-}
